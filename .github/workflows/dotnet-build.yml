@@ -1,0 +1,19 @@
+name: Build
+
+on:
+  push:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs: 
+  Build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 'Checkout GitHub action'
+        uses: actions/checkout@v3
+
+      - name: Set up .NET Core
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '8.x'
